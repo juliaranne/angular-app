@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { PlayerOverview } from './player/player-overview/player-overview.component';
 
 const routes: Routes = [
-  // {path: '', component: HomeComponent, data: { animation: 'home' }},
+  {path: '', component: HomeComponent},
+  {path: 'players', component: PlayerOverview},
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
