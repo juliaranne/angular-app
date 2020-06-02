@@ -6,11 +6,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './create-player.component.html',
   styleUrls: ['./create-player.component.scss']
 })
-export class CreatePlayer implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class CreatePlayer {
 
 }
