@@ -4,23 +4,28 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { PlayerOverview } from './player/player-overview/player-overview.component';
 import { HomeComponent } from './home/home.component';
 import { CreatePlayer } from './player/create-player/create-player.component';
+import { PlayerLeaderBoard } from './player/player-leaderboard/player-leaderboard.component';
+import { PlayerService } from './shared/player.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerOverview,
     HomeComponent,
-    CreatePlayer
+    CreatePlayer,
+    PlayerLeaderBoard
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [PlayerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
