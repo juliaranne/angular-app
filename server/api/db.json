@@ -9,6 +9,35 @@
       "id": 2,
       "name": "Player 2",
       "score": 58
-    }  
+    },
+    {
+      "name": "",
+      "id": 3
+    },
+    {
+      "name": "Dave",
+      "id": 4,
+      "score": 0
+    },
+    {
+      "name": "Tim",
+      "id": 5,
+      "score": 0
+    },
+    {
+      "name": "Tim",
+      "id": 6,
+      "score": 0
+    },
+    {
+      "name": "John",
+      "id": 7,
+      "score": 0
+    },
+    {
+      "name": "John",
+      "id": 8,
+      "score": 0
+    }
   ]
 }

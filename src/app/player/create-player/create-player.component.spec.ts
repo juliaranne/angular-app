@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { FormsModule } from '@angular/forms';
 import { CreatePlayer } from './create-player.component';
 
 describe('CreatePlayer', () => {
@@ -8,7 +9,8 @@ describe('CreatePlayer', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreatePlayer ]
+      declarations: [ CreatePlayer ],
+      imports: [ FormsModule ]
     })
     .compileComponents();
   }));

@@ -2,10 +2,10 @@
   <label for="playerName">Name*</label>
   <input #inputRef="ngModel" name="name" id="playerName" type="text" ngModel required />
   <div *ngIf="inputRef.invalid && (inputRef.dirty || inputRef.touched)">
-    You're wrong!!!
-    <div *ngIf="!inputRef.errors?.required">
+    Please enter a player name
+    <!-- <div *ngIf="!inputRef.errors?.required">
       Is this hidden or not?
-    </div>
+    </div> -->
   </div>
   <button [disabled]="!playerForm.valid">Submit</button>
 </form>
