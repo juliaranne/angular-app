@@ -1,4 +1,4 @@
-<form #playerForm="ngForm" (ngSubmit)="onSubmit(playerForm.value)">
+<form #playerForm="ngForm">
   <label for="playerName">Name*</label>
   <input #inputRef="ngModel" name="name" id="playerName" type="text" ngModel required />
   <div *ngIf="inputRef.invalid && (inputRef.dirty || inputRef.touched)">
@@ -7,5 +7,5 @@
       Is this hidden or not?
     </div> -->
   </div>
-  <button [disabled]="!playerForm.valid">Submit</button>
+  <button [disabled]="!playerForm.valid" #submitButton>Submit</button>
 </form>
