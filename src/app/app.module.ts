@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CreatePlayer } from './player/create-player/create-player.component';
 import { PlayerLeaderBoard } from './player/player-leaderboard/player-leaderboard.component';
 import { PlayerService } from './shared/player.service';
+import { inputNameValidatorDirective } from './shared/name-input-validator.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PlayerService } from './shared/player.service';
     PlayerOverview,
     HomeComponent,
     CreatePlayer,
-    PlayerLeaderBoard
+    PlayerLeaderBoard,
+    inputNameValidatorDirective
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 <form #playerForm="ngForm">
   <label for="playerName">Name*</label>
-  <input #inputRef="ngModel" name="name" id="playerName" type="text" ngModel required />
-  <div *ngIf="inputRef.invalid && (inputRef.dirty || inputRef.touched)">
+  <input appInputValidator #inputRef="ngModel" name="name" id="playerName" type="text" ngModel />
+  <div *ngIf="inputRef.invalid && (inputRef.dirty || inputRef.touched) || inputRef.errors?.nameTaken">
     Please enter a player name
-    <!-- <div *ngIf="!inputRef.errors?.required">
-      Is this hidden or not?
+    <!-- <div *ngIf="">
+      Name already in use
     </div> -->
   </div>
-  <button [disabled]="!playerForm.valid" #submitButton>Submit</button>
+  <button [disabled]="!playerForm.valid">Submit</button>
 </form>

@@ -24,12 +24,12 @@ export class CreatePlayer {
   }
 
   onSubmit(formData: {name: string}) {
-    this.playerService.checkIfNameExists(name);
     this.player.name = formData.name;
     this.getPlayerId();
   }
 
   getPlayerId() {
+    console.log('get id');
     this.playerService.getId()
       .subscribe(id => {
         this.player.id = id
@@ -38,6 +38,7 @@ export class CreatePlayer {
   }
 
   createPlayer() {
+    console.log('create');
     this.playerService.create(this.player)
       .subscribe(players => {
         this.players = players

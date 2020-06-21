@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 import { Player } from './player.model';
 
 const BASE_URL = 'http://localhost:3000/players/';
@@ -22,7 +22,8 @@ export class PlayerService {
   }
 
   checkIfNameExists(value: string) {
-    console.log(value);
+    return this.http.get(BASE_URL)
+      .pipe(map((response: any) => response.filter((item:Player) => item.name.toLowerCase() === value?.toLowerCase())));
   }
 
   create(player: Player) {
