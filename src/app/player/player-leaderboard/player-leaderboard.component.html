@@ -1,5 +1,6 @@
-<input type="text" #searchInput name="search" />
+<label for="searchPlayers">Find player</label>
+<input placeholder="Player name" type="text" #searchInput name="search" id="searchPlayers" />
 <ul>
-  <li *ngFor="let player of players">{{player.name}}</li> 
+  <li *ngFor="let player of players">{{player.name}}, {{player.score}}</li> 
 </ul>
 <button [routerLink]="'/'">Close</button>

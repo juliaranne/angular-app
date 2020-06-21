@@ -11,7 +11,7 @@ import { map, filter, debounceTime, distinctUntilChanged } from 'rxjs/operators'
   templateUrl: './create-player.component.html',
   styleUrls: ['./create-player.component.scss']
 })
-export class CreatePlayer implements AfterViewInit {
+export class CreatePlayer {
   @ViewChild('submitButton') submitButton: any;
   player: Player = {name: '', id: 0, score: 0 }
   players: Player[] = [];
@@ -19,34 +19,28 @@ export class CreatePlayer implements AfterViewInit {
   constructor(private playerService: PlayerService) {
   }
 
-  ngAfterViewInit() {
-    const name$:any = fromEvent(this.getNativeElement(this.submitButton), 'click')  
-      // .pipe(map((event: any) => console.log(event.target.value)))
-      // .switchMap(term => this.playerService.search(term))
-      // .subscribe(items => console.log('hit'));
-  }
-
   getNativeElement(element:any) {
     return element.nativeElement;
   }
 
-  // onSubmit(formData: {name: string}) {
-  //   this.player.name = formData.name;
-  //   this.getPlayerId();
-  // }
+  onSubmit(formData: {name: string}) {
+    this.playerService.checkIfNameExists(name);
+    this.player.name = formData.name;
+    this.getPlayerId();
+  }
 
-  // getPlayerId() {
-  //   this.playerService.getId()
-  //     .subscribe(id => {
-  //       this.player.id = id
-  //       this.createPlayer();
-  //     });
-  // }
+  getPlayerId() {
+    this.playerService.getId()
+      .subscribe(id => {
+        this.player.id = id
+        this.createPlayer();
+      });
+  }
 
-  // createPlayer() {
-  //   this.playerService.create(this.player)
-  //     .subscribe(players => {
-  //       this.players = players
-  //     });
-  // }
+  createPlayer() {
+    this.playerService.create(this.player)
+      .subscribe(players => {
+        this.players = players
+      });
+  }
 }

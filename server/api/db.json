@@ -11,8 +11,9 @@
       "score": 58
     },
     {
-      "name": "",
-      "id": 3
+      "name": "Paul",
+      "id": 3,
+      "score": 22
     },
     {
       "name": "Dave",
@@ -27,7 +28,7 @@
     {
       "name": "Tim",
       "id": 6,
-      "score": 0
+      "score": 11
     },
     {
       "name": "John",
@@ -37,12 +38,12 @@
     {
       "name": "John",
       "id": 8,
-      "score": 0
+      "score": 104
     },
     {
       "name": "4rr",
       "id": 9,
-      "score": 0
+      "score": 13
     }
   ]
 }

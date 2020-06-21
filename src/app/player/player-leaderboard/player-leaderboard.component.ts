@@ -22,11 +22,10 @@ export class PlayerLeaderBoard implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log(this.searchInput);
-    const name$:any = fromEvent(this.getNativeElement(this.searchInput), 'keyup')  
+    fromEvent(this.getNativeElement(this.searchInput), 'keyup')  
       .pipe(map((event: any) => event.target.value))
       .pipe(switchMap(term => this.playerService.search(term)))
-      .subscribe(items => console.log(items, 'items'));
+      .subscribe(results => this.players = results);
   }
 
   getNativeElement(element:any) {

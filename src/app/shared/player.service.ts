@@ -13,12 +13,16 @@ export class PlayerService {
 
   all() {
     return this.http.get(BASE_URL)
-      .pipe(map((response: any) => response));
+      .pipe(map((response: any) => response.sort((a:Player, b:Player) => (b.score - a.score))));
   }
 
   getId() {
     return this.http.get(BASE_URL)
       .pipe(map((response: any) => response[response.length-1].id + 1));
+  }
+
+  checkIfNameExists(value: string) {
+    console.log(value);
   }
 
   create(player: Player) {
@@ -27,9 +31,7 @@ export class PlayerService {
   }
 
   search(term: string) {
-    const search = new HttpParams().set('name', term);
-
-    return this.http.get(`${BASE_URL}`, {params: search})
-      .pipe(map((response: any) => console.log(response)));
+    return this.all()
+      .pipe(map((response: any) => response.filter((item: Player) => item.name.includes(term))));
   }
 }
