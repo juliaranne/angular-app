@@ -1,11 +1,12 @@
 <form #playerForm="ngForm" (ngSubmit)="onSubmit(playerForm.value)">
-  <label for="playerName">Name*</label>
-  <input appInputValidator #inputRef="ngModel" name="name" id="playerName" type="text" ngModel />
-  <div *ngIf="inputRef.errors && (inputRef.dirty || inputRef.touched) || inputRef.errors?.nameTaken">
-    Please enter a player name
-    <div *ngIf="inputRef.errors?.nameTaken">
-      Name already in use
-    </div>
+  <label>Name*
+    <input required appInputValidator #inputRef="ngModel" name="name" id="playerName" type="text" ngModel />
+  </label>
+  <div *ngIf="inputRef.errors?.required && (inputRef.dirty || inputRef.touched)">
+    Please create your player name
+  </div>
+  <div *ngIf="inputRef.errors?.nameTaken && (inputRef.dirty || inputRef.touched)">
+    Sorry, this name is already in use
   </div>
   <button [disabled]="!playerForm.valid">Submit</button>
 </form>

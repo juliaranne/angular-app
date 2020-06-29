@@ -1,8 +1,8 @@
-import { AsyncValidator, AbstractControl, NG_ASYNC_VALIDATORS, Validator, ValidationErrors } from '@angular/forms';
+import { AsyncValidator, AbstractControl, NG_ASYNC_VALIDATORS, ValidationErrors } from '@angular/forms';
 import { Directive } from '@angular/core';
 import { PlayerService } from './player.service';
-import {Observable} from 'rxjs';
-import { map, filter } from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Directive({
   selector: '[appInputValidator]',
@@ -17,8 +17,8 @@ export class inputNameValidatorDirective implements AsyncValidator {
   constructor(private playerService: PlayerService) { }
 
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
-    return this.playerService.checkIfNameExists(control.value).pipe(
-      map((result) => result.length ? {nameTaken: 'already taken'} : null)
+    return this.playerService.checkIfNameExists(control.value.trim()).pipe(
+      map((result) => result.length ? { nameTaken: 'already taken' } : null)
     );
   }
 }

@@ -1,63 +1,51 @@
 {
   "players": [
     {
+      "name": "player 1",
+      "display_name": "Player 1",
       "id": 1,
-      "name": "Player 1",
       "score": 38
     },
     {
+      "name": "player 2",
+      "display_name": "Player 2",
       "id": 2,
-      "name": "Player 2",
       "score": 58
     },
     {
-      "name": "Paul",
+      "name": "paul",
+      "display_name": "Paul",
       "id": 3,
       "score": 22
     },
     {
-      "name": "Dave",
+      "name": "dave",
+      "display_name": "Dave",
       "id": 4,
       "score": 0
     },
     {
-      "name": "Tim",
-      "id": 5,
-      "score": 0
-    },
-    {
-      "name": "Tim",
+      "name": "tim",
+      "display_name": "Tim",
       "id": 6,
       "score": 11
     },
     {
-      "name": "John",
-      "id": 7,
-      "score": 0
-    },
-    {
-      "name": "John",
+      "name": "john",
+      "display_name": "John",
       "id": 8,
       "score": 104
     },
     {
       "name": "4rr",
+      "display_name": "4rr",
       "id": 9,
       "score": 13
     },
     {
-      "name": "Tim",
-      "id": 10,
-      "score": 0
-    },
-    {
-      "name": "Janet",
+      "name": "janet",
+      "display_name": "Janet",
       "id": 11,
-      "score": 0
-    },
-    {
-      "name": "Tim",
-      "id": 12,
       "score": 0
     }
   ]

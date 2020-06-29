@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { PlayerService } from '../../shared/player.service';
 import { Player } from '../../shared/player.model';
 
-import { Observable } from 'rxjs/Observable';
 import { fromEvent } from 'rxjs';
 import { map, switchMap, filter, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
@@ -22,9 +21,11 @@ export class PlayerLeaderBoard implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    fromEvent(this.getNativeElement(this.searchInput), 'keyup')  
+    fromEvent(this.getNativeElement(this.searchInput), 'keyup')
+      .pipe(debounceTime(200))
+      .pipe(distinctUntilChanged())  
       .pipe(map((event: any) => event.target.value))
-      .pipe(switchMap(term => this.playerService.search(term)))
+      .pipe(switchMap(term => this.playerService.search(term.toLowerCase())))
       .subscribe(results => this.players = results);
   }
 

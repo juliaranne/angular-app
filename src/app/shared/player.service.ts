@@ -23,7 +23,7 @@ export class PlayerService {
 
   checkIfNameExists(value: string) {
     return this.http.get(BASE_URL)
-      .pipe(map((response: any) => response.filter((item:Player) => item.name.toLowerCase() === value?.toLowerCase())));
+      .pipe(map((response: any) => response.filter((item:Player) => item.name === value?.toLowerCase())));
   }
 
   create(player: Player) {
